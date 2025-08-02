@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: CI
 
 on:
   push:
@@ -12,23 +12,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Setup Node.js and pnpm
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: 'pnpm'
 
-      - name: Install dependencies
+      - name: Enable Corepack and Install pnpm
         run: |
           corepack enable
           corepack prepare pnpm@latest --activate
-          pnpm install
 
-      - name: Build project
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build app
         run: pnpm build
-
-      # Optional: Docker build + push
-      - name: Build Docker image
-        run: docker build -t hello-docker .
-
-      # Optional: Deploy step (can push to Docker Hub or deploy to Vercel, AWS, etc.)
