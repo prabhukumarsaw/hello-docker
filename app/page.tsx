@@ -4,7 +4,7 @@ export default function Home() {
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 ">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <div className="flex items-center gap-4">  
-          <h1 className="text-6xl font-bold text-blue-600">Hello Developer</h1>
+          <h1 className="text-6xl font-bold text-blue-600">Hello World</h1>
         </div>      
       </main>
      
